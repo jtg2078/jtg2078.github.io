@@ -1,0 +1,573 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Python DB-API Quick Reference</title>
+
+</head>
+<body>
+<h2>Python DB-API Quick Reference</h2>
+
+<p>For a full reference to the Python DB-API, see the specification and the documentation for specific database modules, such as sqlite3 and psycopg2.</p>
+
+<p><strong>module.connect(...)</strong><br/>
+Connect to a database. The arguments to connect differ from module to module; see the documentation for details. connect returns a Connection object or raises an exception.</p>
+
+<p>For the methods below, note that you don't literally call (for instance) Connection.cursor() in your code. You make a Connection object, save it in a variable (maybe called db) and then call db.cursor().</p>
+
+<p><strong>Connection.cursor()</strong><br/>
+Makes a Cursor object from a connection. Cursors are used to send SQL statements to the database and fetch results.</p>
+
+<p><strong>Connection.commit()</strong> <br/>
+Commits changes made in the current connection. You must call commit before closing the connection if you want changes (such as inserts, updates, or deletes) to be saved.  Uncommitted changes will be visible from your currect connection, but not from others.</p>
+
+<p><strong>Connection.rollback()</strong> <br/>
+Rolls back (undoes) changes made in the current connection. You must roll back if you get an exception if you want to continue using the same connection.</p>
+
+<p><strong>Connection.close()</strong> <br/>
+Closes the connection. Connections are always implicitly closed when your program exits, but it's a good idea to close them manually especially if your code might run in a loop.</p>
+
+<p><strong>Cursor.execute(statement)</strong><br/>
+<strong>Cursor.execute(statement, tuple)</strong><br/>
+Execute an SQL statement on the database. If you want to substitute variables into the SQL statement, use the second form — see the documentation for details.</p>
+
+<p>If your statement doesn't make sense (like if it asks for a column that isn't there), or if it asks the database to do something it can't do (like delete a row of a table that is referenced by other tables' rows) you will get an exception.</p>
+
+<p><strong>Cursor.fetchall()</strong><br/>
+Fetch all the results from the current statement.</p>
+
+<p><strong>Cursor.fetchone()</strong><br/>
+Fetch just one result.  Returns a tuple, or None if there are no results.</p>
+
+<h2>Vagrant VM Quick Reference</h2>
+
+<p><a href="https://www.udacity.com/wiki/ud197/install-vagrant">Installation instructions</a></p>
+
+<p>All files inside the <strong>vagrant</strong> directory are shared between your computer's OS and the virtual machine.</p>
+
+<p>When you've brought the forum web server up (see instructions in the lesson), you can access it from your browser at http://localhost:8000/.</p>
+
+<h2>psql Quick Reference</h2>
+
+<p>The psql command-line tool is really powerful. There's a complete reference to it in the PostgreSQL documentation.</p>
+
+<p>To connect psql to a database running on the same machine (such as your VM), all you need to give it is the database name. For instance, the command psql forum will connect to the forum database.</p>
+
+<p>From within psql, you can run any SQL statement using the tables in the connected database. Make sure to end SQL statements with a semicolon, which is not always required from Python.</p>
+
+<p>You can also use a number of special psql commands to get information about the database and make configuration changes. The \d posts command shown in the video is one example — this displays the columns of the posts table.</p>
+
+<p>Some other things you can do:</p>
+
+<p><strong>\dt</strong> — list all the tables in the database.</p>
+
+<p><strong>\dt+</strong> — list tables plus additional information (notably, how big each table is on disk).</p>
+
+<p><strong>\H</strong> — switch between printing tables in plain text vs. HTML.</p>
+
+<h2>Bleach documentation</h2>
+
+<p>Read the documentation for Bleach here: http://bleach.readthedocs.org/en/latest/</p>
+
+<h2>Update and delete statements</h2>
+
+<p>The syntax of the update and delete statements:</p>
+
+<p><strong>update</strong> table <strong>set</strong> column = value <strong>where</strong> restriction ;
+<strong>delete from</strong> table <strong>where</strong> restriction ;</p>
+
+<p>The <strong>where</strong> restriction in both statements works the same as in select and supports the same set of operators on column values.  In both cases, if you leave off the <strong>where</strong> restriction, the update or deletion will apply to all rows in the table, which is usually not what you want.</p>
+
+<h2>like operator</h2>
+
+<p>The <strong>like</strong> operator supports a simple form of text pattern-matching. Whatever is on the left side of the operator (usually the name of a text column) will be matched against the pattern on the right. The pattern is an SQL text string (so it's in '<strong>single quotes</strong>') and can use the % sign to match any sub-string, including the empty string.</p>
+
+<p>If you are familiar with regular expressions, think of the % in like patterns as being like the regex .* (dot star).</p>
+
+<p>If you are more familiar with filename patterns in the Unix shell or Windows command prompt, % here is a lot like * (star) in those systems.</p>
+
+<p>For instance, for a table row where the column fish has the value 'salmon', all of these restrictions would be true:</p>
+
+<ul>
+<li><strong>fish like 'salmon'</strong></li>
+<li><strong>fish like 'salmon%'</strong></li>
+<li><strong>fish like 'sal%'</strong></li>
+<li><strong>fish like '%n'</strong></li>
+<li><strong>fish like 's%n'</strong></li>
+<li><strong>fish like '%al%'</strong></li>
+<li><strong>fish like '%'</strong></li>
+<li><strong>fish like '%%%'</strong></li>
+</ul>
+
+
+<p>And all of these would be false:</p>
+
+<ul>
+<li><strong>fish like 'carp'</strong></li>
+<li><strong>fish like 'salmonella'</strong></li>
+<li><strong>fish like '%b%'</strong></li>
+<li><strong>fish like 'b%'</strong></li>
+<li><strong>fish like ''</strong></li>
+</ul>
+
+
+<p>The term "spam" referring to junk posts comes from Monty Python's "Spam" sketch. On the Internet, "spamming" was first used to mean repetitious junk messages intended to disrupt a group chat. Later, it came to refer to unsolicited ads on forums or email; and more recently to more-or-less any repetitious or uninvited junk message.</p>
+
+<h2>lesson note</h2>
+
+<p><img src="img/db-api.png" alt="" />
+<img src="img/db-api-modules.png" alt="" />
+<img src="img/write-code-db-api.png" alt="" /></p>
+
+<pre><code># To see how the various functions in the DB-API work, take a look at this code,
+# then the results that it prints when you press "Test Run".
+#
+# Then modify this code so that the student records are fetched in sorted order
+# by student's name.
+#
+
+import sqlite3
+
+# Fetch some student records from the database.
+db = sqlite3.connect("students")
+c = db.cursor()
+query = "select name, id from students order by name;"
+c.execute(query)
+rows = c.fetchall()
+
+# First, what data structure did we get?
+print "Row data:"
+print rows
+
+# And let's loop over it too:
+print
+print "Student names:"
+for row in rows:
+  print "  ", row[0]
+
+db.close()
+
+------------------------------------
+Row data:
+[(u'Diane Paiwonski', 773217), (u'Harry Evans-Verres', 172342), (u'Hoban Washburne', 186753), (u'Jade Harley', 441304), (u'Jonathan Frisby', 917151), (u'Melpomene Murray', 102030), (u'Robert Oliver Howard', 124816), (u'Taylor Hebert', 654321), (u'Trevor Bruttenholm', 162636)]
+
+Student names:
+   Diane Paiwonski
+   Harry Evans-Verres
+   Hoban Washburne
+   Jade Harley
+   Jonathan Frisby
+   Melpomene Murray
+   Robert Oliver Howard
+   Taylor Hebert
+   Trevor Bruttenholm
+</code></pre>
+
+<pre><code># This code attempts to insert a new row into the database, but doesn't
+# commit the insertion.  Add a commit call in the right place to make
+# it work properly.
+# 
+
+import sqlite3
+
+db = sqlite3.connect("testdb")
+c = db.cursor()
+c.execute("insert into balloons values ('blue', 'water') ")
+db.commit()
+db.close()
+
+Before:
++-------+----------+
+| color | contents |
++=======+==========+
+|   red |      air |
+| green |   helium |
++-------+----------+
+
+After:
++-------+----------+
+| color | contents |
++=======+==========+
+|   red |      air |
+| green |   helium |
+|  blue |    water |
++-------+----------+
+</code></pre>
+
+<h2>prevent SQL-injection</h2>
+
+<p><img src="img/sql-injection.png" alt="" />
+<img src="img/sql-injection-prevent.png" alt="" />
+<img src="img/malicious-user-input.png" alt="" />
+<img src="img/spammy-table.png" alt="" />
+<img src="img/sql-injection-delete.png" alt="" /></p>
+
+<h4>note</h4>
+
+<p>In SQL, a double dash <strong>(--)</strong>  signifies the end of the string. Adding a double dash to the end of your SQL injection basically makes anything after it a comment, thus making the webpage ignore it.</p>
+
+<p>This is useful for making the server ignore the final quotation mark at the end of an SQL command. E.g. if the SQL looked like this:</p>
+
+<p>SELECT * FROM <code>users</code> WHERE username=' $_POST['uname']';
+(POST is the PHP command to get information from a form) entering the command above but with a double dash will solve this problem. The SQL statement would now look like this:</p>
+
+<p>SELECT * FROM <code>users</code> WHERE username=' ' or 1=1--';
+because of the double dash at the end, the '; gets ignored making the query valid and again 1 is always equal to 1 so it will select the first username in the database, which is usually the Admin.</p>
+
+<h4>Bobby Tables: A guide to preventing SQL injection</h4>
+
+<p><img src="http://bobby-tables.com/img/xkcd.png" alt="" /></p>
+
+<h2>Passing parameters to SQL queries</h2>
+
+<p>The variables placeholder must always be a <code>%s</code>, even if a different placeholder (such as a <code>%d</code> for integers or <code>%f</code> for floats) may look more appropriate:</p>
+
+<pre><code>&gt;&gt;&gt; cur.execute("INSERT INTO numbers VALUES (%d)", (42,)) # WRONG
+&gt;&gt;&gt; cur.execute("INSERT INTO numbers VALUES (%s)", (42,)) # correct
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; cur.execute(
+...     """INSERT INTO some_table (an_int, a_date, a_string)
+...         VALUES (%s, %s, %s);""",
+...     (10, datetime.date(2005, 11, 18), "O'Reilly"))
+
+is converted into the SQL command:
+INSERT INTO some_table (an_int, a_date, a_string)
+ VALUES (10, '2005-11-18', 'O''Reilly');
+</code></pre>
+
+<pre><code>Named arguments are supported too using %(name)s placeholders
+
+&gt;&gt;&gt; cur.execute(
+...     """INSERT INTO some_table (an_int, a_date, another_date, a_string)
+...         VALUES (%(int)s, %(date)s, %(date)s, %(str)s);""",
+...     {'int': 10, 'str': "O'Reilly", 'date': datetime.date(2005, 11, 18)})
+</code></pre>
+
+<h2>Bleach</h2>
+
+<p>Bleach is a whitelist-based HTML sanitization and text linkification library. It is designed to take untrusted user input with some HTML.</p>
+
+<p><a href="https://bleach.readthedocs.org/en/latest/">https://bleach.readthedocs.org/en/latest/</a></p>
+
+<h2>Best practice</h2>
+
+<p>This is not the only right answer, but it's one possible approach.</p>
+
+<p>Checking for unsafe content both when we receive a post, and when we display that post to a user, is the most careful approach.</p>
+
+<p>However, removing bad stuff from posts when they are submitted means that we might lose our chance to catch someone in the act of sending an attack.</p>
+
+<p>What's right for your service and your users depends on what you want to accomplish!</p>
+
+<h2>Update</h2>
+
+<p><img src="img/update.png" alt="" />
+<img src="img/using-like.png" alt="" />
+<img src="img/like-explained.png" alt="" /></p>
+
+<h2>Delete</h2>
+
+<p><img src="img/delete.png" alt="" /></p>
+</body>
+</html>
